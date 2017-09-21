@@ -1,0 +1,12 @@
+syntax on
+filetype plugin on
+filetype plugin indent on
+set expandtab
+set softtabstop=2
+set shiftwidth=2
+autocmd FileType java setlocal softtabstop=4 shiftwidth=4
+autocmd BufWritePre *.java :%s/\s\+$//e
+autocmd BufWritePre *.gradle :%s/\s\+$//e
+autocmd BufWritePre *.groovy :%s/\s\+$//e
+autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.xml :%s/\s\+$//e

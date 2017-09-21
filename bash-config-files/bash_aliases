@@ -1,0 +1,7 @@
+alias dev='cd ~/Development'
+
+alias ij="open -a 'IntelliJ IDEA'"
+alias atom="open -a 'Atom'"
+
+alias histg='history | grep'
+alias psg='ps ax | grep'

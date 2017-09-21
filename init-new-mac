@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install General Packages
+brew install git bash-completion scmpuff
+
+# Install Java Packages
+brew install gradle maven
+
+# nvm and nodejs
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
+nvm install v4
+nvm install v6
+nvm install v8
+brew install yarn --without-node
+
+# Install Bash Config Files
+git clone https://github.com/gyrfalcon/bin.git ~/bin
+git clone https://github.com/gyrfalcon/init-new-mac.git ~/.mac-config
+ln -s ~/.mac-config/bash-config-files/bash_aliases ~/.bash_aliases
+ln -s ~/.mac-config/bash-config-files/bash_env ~/.bash_env
+ln -s ~/.mac-config/bash-config-files/bash_profile ~/.bash_profile
+ln -s ~/.mac-config/bash-config-files/gitconfig ~/.gitconfig
+ln -s ~/.mac-config/bash-config-files/gitignore ~/.gitignore
+ln -s ~/.mac-config/bash-config-files/hyper.js ~/.hyper.js
+ln -s ~/.mac-config/bash-config-files/vimrc ~/.vimrc
+
+# Install Atom
+curl -L -o atom.zip https://atom.io/download/mac
+unzip atom.zip -d ~/Applications
+rm atom.zip
+ln -s ~/Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm /usr/local/bin/apm
+apm install --packages-file ~/.mac-config/atom-packages.txt
+
+# Install hyper
+curl -L -o hyper.zip https://releases.hyper.is/download/mac
+unzip hyper.zip -d ~/Applications
+rm hyper.zip
+
+# Misc
+mkdir ~/Development

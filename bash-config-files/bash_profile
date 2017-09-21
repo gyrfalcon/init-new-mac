@@ -1,0 +1,36 @@
+# Environment Configuration
+if [ -f "${HOME}/.bash_env" ]
+then
+  source "${HOME}/.bash_env"
+fi
+
+# Aliases
+if [ -f "${HOME}/.bash_aliases" ]
+then
+  source "${HOME}/.bash_aliases"
+fi
+
+# Process Kickoff
+if [ -f "${HOME}/.bash_proc" ]
+then
+  source "${HOME}/.bash_proc"
+fi
+
+# Load Bash Completion
+if [ -f "$(brew --prefix)/etc/bash_completion" ]
+then
+  source "$(brew --prefix)/etc/bash_completion"
+fi
+
+# Load Custom Bash Completion Scripts
+if [ -d "${HOME}/.bash_completion.d" ]
+then
+  for file in $(find "${HOME}/.bash_completion.d" -type f -or -type l -name '*')
+  do
+    source $file
+  done
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
