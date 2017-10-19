@@ -1,13 +1,10 @@
 [user]
 	name = Justin Shepard
-	email = justin.shepard@gmail.com
 [alias]
 	staged = diff --cached
 	fast-amend = commit --amend --no-edit
 	unstage = reset HEAD --
 	tip = log -1
 	tidy = !git branch --merged | sed /^\*/d | xargs git branch -d
-[push]
-	default = simple
 [core]
 	excludesfile = ~/.gitignore
