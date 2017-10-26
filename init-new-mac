@@ -19,6 +19,7 @@ brew install yarn --without-node
 # Install Bash Config Files
 git clone https://github.com/gyrfalcon/bin.git ~/bin
 git clone https://github.com/gyrfalcon/init-new-mac.git ~/.mac-config
+git clone https://github.com/gyrfalcon/hyper-statusline ~/.hyper_plugins/local/hyper-statusline
 ln -s ~/.mac-config/bash-config-files/bash_aliases ~/.bash_aliases
 ln -s ~/.mac-config/bash-config-files/bash_env ~/.bash_env
 ln -s ~/.mac-config/bash-config-files/bash_profile ~/.bash_profile
