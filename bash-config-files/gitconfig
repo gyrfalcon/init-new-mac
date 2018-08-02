@@ -6,5 +6,10 @@
 	unstage = reset HEAD --
 	tip = log -1
 	tidy = !git branch --merged | sed /^\\*/d | xargs git branch -d
+	branchg = !git branch -avv | grep
 [core]
 	excludesfile = ~/.gitignore
+[fetch]
+	prune = true
+[protocol]
+	version = 2

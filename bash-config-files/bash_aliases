@@ -4,4 +4,6 @@ alias ij="open -a 'IntelliJ IDEA'"
 alias atom="open -a 'Atom'"
 
 alias histg='history | grep'
+alias less='less -r'
 alias psg='ps ax | grep'
+alias port-check='lsof -nP -i4TCP:$1'
