@@ -9,6 +9,10 @@
 	branchg = !git branch -avv | grep
 [core]
 	excludesfile = ~/.gitignore
+[http]
+	postBuffer = 1048576000
+[https]
+	postBuffer = 1048576000
 [fetch]
 	prune = true
 [protocol]
