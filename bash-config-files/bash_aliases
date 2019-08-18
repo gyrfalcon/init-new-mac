@@ -1,6 +1,6 @@
 alias o='popd'
 alias u='pushd'
-alias dev='o ~/Development'
+alias dev='u ~/Development'
 
 alias ij="open -a 'IntelliJ IDEA'"
 alias atom="open -a 'Atom'"
