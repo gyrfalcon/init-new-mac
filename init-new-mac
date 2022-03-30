@@ -4,29 +4,37 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install General Packages
-brew install git bash-completion scmpuff
+brew install git bash bash-completion scmpuff
 
 # Install Java Packages
 brew install gradle maven
 
-# nvm and nodejs
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
-nvm install v4
-nvm install v6
-nvm install v8
-brew install yarn --without-node
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# Install yarn
+brew install yarn
 
 # Install Bash Config Files
 git clone https://github.com/gyrfalcon/bin.git ~/bin
 git clone https://github.com/gyrfalcon/init-new-mac.git ~/.mac-config
-git clone https://github.com/gyrfalcon/hyper-statusline ~/.hyper_plugins/local/hyper-statusline
-ln -s ~/.mac-config/bash-config-files/bash_aliases ~/.bash_aliases
-ln -s ~/.mac-config/bash-config-files/bash_env ~/.bash_env
+cat > ~/.bash_aliases <<EOF
+. ~/.mac-config/bash-config-files/bash_aliases
+EOF
+cat > ~/.bash_env <<EOF
+. ~/.mac-config/bash-config-files/bash_env
+EOF
 ln -s ~/.mac-config/bash-config-files/bash_profile ~/.bash_profile
 ln -s ~/.mac-config/bash-config-files/gitconfig ~/.gitconfig
 ln -s ~/.mac-config/bash-config-files/gitignore ~/.gitignore
-ln -s ~/.mac-config/bash-config-files/hyper.js ~/.hyper.js
 ln -s ~/.mac-config/bash-config-files/vimrc ~/.vimrc
+
+# Reload profile
+. ~/.bash_profile
+
+# Install nodejs
+nvm install v14
+nvm install v16
 
 # Install Atom
 curl -L -o atom.zip https://atom.io/download/mac
@@ -35,10 +43,16 @@ rm atom.zip
 ln -s ~/Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm /usr/local/bin/apm
 apm install --packages-file ~/.mac-config/atom-packages.txt
 
-# Install hyper
-curl -L -o hyper.zip https://releases.hyper.is/download/mac
-unzip hyper.zip -d ~/Applications
-rm hyper.zip
-
 # Misc
 mkdir ~/Development
+
+# Set installed bash as available shell and configure it as the user's shell
+sudo sh -c 'echo /usr/local/bin/bash >> /etc/shells'
+chsh -s /usr/local/bin/bash
+
+echo '*****************************'
+echo ' This Mac is now set up.'
+echo ' Close this terminal window'
+echo ' and open a new one to get'
+echo ' started.'
+echo '*****************************'

@@ -10,3 +10,9 @@ alias less='less -r'
 alias psg='ps ax | grep'
 alias port-check='lsof -nP -i4TCP:$1'
 alias mdtl='mvn dependency:tree | less'
+
+jdk() {
+  version=$1
+  export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+  java -version
+}

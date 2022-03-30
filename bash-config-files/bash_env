@@ -29,6 +29,6 @@ export PATH=~/bin:$PATH
 
 #PROMPT_COMMAND='BRANCH=$(__git_ps1 " [%s]");
 #PS1="\n$GREEN\u@\h $YELLOW\w$CYAN$BRANCH$BLUE$NODE_INFO$RESTORE\n$ "'
-export PS1='\n\$ '
+#export PS1='\n\$ '
 
 eval "$(scmpuff init -s)"
