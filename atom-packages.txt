@@ -6,12 +6,13 @@ duplicate-and-comment
 from-and-to-json
 intentions
 join-lines-smarter
-language-gherkin
 language-docker
+language-gherkin
 language-gradle
 language-groovy
 linter
 linter-eslint
+linter-eslint-node
 linter-stylelint
 linter-ui-default
 next-line-comment
