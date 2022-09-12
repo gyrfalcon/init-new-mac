@@ -2,8 +2,8 @@
 
 set -e
 
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Install Homebrew (do this manually before running this script for now)
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install General Packages
 brew install git bash bash-completion scmpuff
@@ -37,13 +37,6 @@ ln -s ~/.mac-config/bash-config-files/vimrc ~/.vimrc
 # Install nodejs
 nvm install v14
 nvm install v16
-
-# Install Atom
-curl -L -o atom.zip https://atom.io/download/mac
-unzip atom.zip -d ~/Applications
-rm atom.zip
-ln -s ~/Applications/Atom.app/Contents/Resources/app/apm/node_modules/.bin/apm /usr/local/bin/apm
-apm install --packages-file ~/.mac-config/atom-packages.txt
 
 # Misc
 mkdir ~/Development
